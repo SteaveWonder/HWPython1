@@ -7,20 +7,44 @@
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
 #     **Вывод:** Парам пам-пам 
 
-text = input().lower().split()
-vowels = 'аеоуюёэяи'
-result = set()
-for word in text:
-    count = 0
-    for i in word:
-        if i in vowels:
-            count += 1
-    result.add(count)
+# text = input().lower().split()
+# vowels = 'аеоуюёэяи'
+# result = set()
+# for word in text:
+#     count = 0
+#     for i in word:
+#         if i in vowels:
+#             count += 1
+#     result.add(count)
     
-if len(result) == 1:
-    print("Парам пам-пам")
-else:
-    print("Парам пам")
+# if len(result) == 1:
+#     print("Парам пам-пам")
+# else:
+#     print("Парам пам")
+
+# def words(str):
+#     str = str.split()
+#     list_1 = []
+#     for word in str:
+#         sum_w = 0
+#         for i in word:
+#             if i in 'пталоптлоптлку':
+#                 sum_w += 1
+#         list_1.append(sum_w)
+#     return len(list_1) == list_1.count(list_1[0])
+
+# str_1 = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
+# if words(str_1):
+#     print('Парам пам-пам')
+# else:
+#     print('Пам парам')
+
+
+
+
+
+
+
 
 
 # Задача 36: Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6), которая принимает в качестве аргумента функцию, 
@@ -38,14 +62,21 @@ else:
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
 
-def print_operation_table(operation, num_rows=6, num_columns=6):
-    print('	'.join([str(i) for i in range(1, num_columns + 1)]))        # .join - принимает список и возвращает строку
-    for i in range(2, num_rows + 1):
-        print(i, end=' \t')
-        for j in range(2, num_columns + 1):
-            print(operation(i, j), end=' \t')
-        print()
+# def print_operation_table(operation, num_rows=6, num_columns=6):
+#     print('	'.join([str(i) for i in range(1, num_columns + 1)]))        # .join - принимает список и возвращает строку
+#     for i in range(2, num_rows + 1):
+#         print(i, end=' \t')
+#         for j in range(2, num_columns + 1):
+#             print(operation(i, j), end=' \t')
+#         print()
+
+
+# print_operation_table(lambda x, y: x * y)
+
+def print_operation_table(operation, num_rows = 6, num_columns = 6):
+    a = [[operation(i, j) for j in range(1, num_columns + 1)] for i in range(1, num_rows + 1)]
+    for i in a:
+        print(* [f" {x: > 3} " for x in i])
 
 
 print_operation_table(lambda x, y: x * y)
-
